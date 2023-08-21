@@ -15,14 +15,17 @@ const Profile = () => {
       opacity: 1,
     },
   };
+  const transition = {
+    delay: 0.3,
+  };
   return (
     <section className="profile">
       <main>
         <motion.img src={me} alt="User" {...options} />
-        <motion.h5 {...options} transition={{ delay: 0.3 }}>
+        <motion.h5 {...options} transition={transition}>
           Nelson
         </motion.h5>
-      
+
         <motion.div
           initial={{
             x: "-100vw",
@@ -32,25 +35,11 @@ const Profile = () => {
             x: 0,
             opacity: 1,
           }}
+          transition={transition}
         >
           <Link to="/myorders">Orders</Link>
+          <button>Logout</button>
         </motion.div>
-
-        <motion.button
-          initial={{
-            x: "-100vw",
-            opacity: 0,
-          }}
-          animate={{
-            x: 0,
-            opacity: 1,
-          }}
-          transition={{
-            delay: 0.3,
-          }}
-        >
-          Logout
-        </motion.button>
       </main>
     </section>
   );
